@@ -17,11 +17,12 @@ $(document).ready(function () {
 		    var a = $('<button>') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
 		    a.addClass('gif'); // Added a class 
 		    a.attr('data-name', gifs[i]); // Added a data-attribute
+            a.attr('id', 'animalBtn');
 		    a.text(gifs[i]); // Provided the initial button text
 		    $('#animalButtons').append(a); // Added the button to the HTML
-		}
+		} 
 	}
-
+    renderButtons();
 	// ========================================================
 
 	// This function handles events where one button is clicked
@@ -34,7 +35,8 @@ $(document).ready(function () {
 		gifs.push(newGif);
 		
 		// Our array then runs which handles the processing of our movie array
-		renderButtons(); 
+		renderButtons();
+
 		// We have this line so that users can hit "enter" instead of clicking on ht button and it won't move to the next page
 		return false;
 	})
@@ -50,7 +52,7 @@ $(document).ready(function () {
             .done(function(response) {
                 // step 1: Run this file, click a button, and see what the data looks like in the browser's console. Open up the Object, then open up the data key, then open up 0. Study the keys and how the JSON is structured.
 
-                console.log(response)
+                // console.log(response)
 
                 // step 2: since the image information is inside of the data key then make a variable named results and set it equal to response.data
 
@@ -83,10 +85,8 @@ $(document).ready(function () {
                     animalDiv.append(p);
                     animalDiv.append(animalImage);
                     $('#animals').prepend(animalDiv);
-                    console.log(results);
-                    console.log(gifs);
-
-
+                    // console.log(results);
+                    // console.log(gifs);
 
                     //--------------------------------
                 }
