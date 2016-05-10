@@ -1,0 +1,26 @@
+.btn {
+	padding: .375rem 1em;
+}
+.btn-toolbar .animalBtn {
+    margin-right: 5px;
+    position: relative;
+    top: 10px;
+    left: 30px;
+}
+.btn-toolbar .animalBtn:last-child{
+    margin-right: 0;
+}
+#animal-form {
+	margin-right: 10px; 
+
+}
+#animalDiv {
+	/*padding: 10px;*/
+}
+/*.animalGif {
+	float: left;
+	overflow: wrap;
+}*/
+/*p {
+	float: left;
+}*/

@@ -15,7 +15,8 @@ $(document).ready(function () {
 
 			// Note the jQUery syntax here... 
 		    var a = $('<button>') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
-		    a.addClass('gif'); // Added a class 
+		    a.addClass('btn btn-info'); // Added a class
+            a.attr('type', 'button'); 
 		    a.attr('data-name', gifs[i]); // Added a data-attribute
             a.addClass('animalBtn');
 		    a.text(gifs[i]); // Provided the initial button text
@@ -52,7 +53,7 @@ $(document).ready(function () {
             .done(function(response) {
                 // step 1: Run this file, click a button, and see what the data looks like in the browser's console. Open up the Object, then open up the data key, then open up 0. Study the keys and how the JSON is structured.
 
-                console.log(response)
+                // console.log(response)
 
                 // step 2: since the image information is inside of the data key then make a variable named results and set it equal to response.data
 
@@ -78,19 +79,20 @@ $(document).ready(function () {
                     */
 
                     //------------put step 3 in between these dashes--------------------
-                    var animalDiv = $('<div>');
+                    // var gifRow = $("<div class='row>");
+                    var animalDiv = $("<div class='col-lg-4'>");
                     var p = $('<p>').text("Rating: " + results[i].rating);
                     var animalImage = $('<img>').attr('src', results[i].images.fixed_height_still.url);
                     animalImage.attr('data-still', results[i].images.fixed_height_still.url);
                     animalImage.attr('data-animate', results[i].images.fixed_height.url);
                     animalImage.attr('data-state', 'still');
                     animalImage.addClass('animalGif');
-
                     animalDiv.append(p);
                     animalDiv.append(animalImage);
+                    // gifRow.append(animalDiv);
                     $('#animals').prepend(animalDiv);
-                    // console.log(results);
-                    // console.log(gifs);
+                    // console.log(gifRow);
+                    // console.log(animalDiv);
 
                     //--------------------------------
                 }
@@ -106,7 +108,7 @@ $(document).ready(function () {
             var state = $(this).attr('data-state');
             var animate = $(this).attr('data-animate');
             var still = $(this).attr('data-still');
-            console.log(animate);
+            // console.log(animate);
             //----------------------------------------------------
 
             /*STEP THREE: 
